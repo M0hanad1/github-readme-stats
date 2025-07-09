@@ -92,9 +92,9 @@ const fetchRepo = async (username, reponame) => {
   const isOrg = data.user === null && data.organization;
 
   if (isUser) {
-    if (!data.user.repository || data.user.repository.isPrivate) {
-      throw new Error("User Repository Not found");
-    }
+    // if (!data.user.repository || data.user.repository.isPrivate) {
+    //   throw new Error("User Repository Not found");
+    // }
     return {
       ...data.user.repository,
       starCount: data.user.repository.stargazers.totalCount,
@@ -102,12 +102,12 @@ const fetchRepo = async (username, reponame) => {
   }
 
   if (isOrg) {
-    if (
-      !data.organization.repository ||
-      data.organization.repository.isPrivate
-    ) {
-      throw new Error("Organization Repository Not found");
-    }
+    // if (
+    //   !data.organization.repository ||
+    //   data.organization.repository.isPrivate
+    // ) {
+    //   throw new Error("Organization Repository Not found");
+    // }
     return {
       ...data.organization.repository,
       starCount: data.organization.repository.stargazers.totalCount,
